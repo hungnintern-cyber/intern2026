@@ -1,4 +1,10 @@
-backend/venv/
-.pytest_cache/
+*.db
+*.sqlite3
+venv/
+env/
+.venv/
 __pycache__/
 *.pyc
+.env
+.vscode/
+.idea/
