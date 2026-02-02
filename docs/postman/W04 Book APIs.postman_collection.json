@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "a4cf3830-e918-4640-91ce-7309ab58157f",
+    "name": "W04 Book APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51414077",
+    "_collection_link": "https://go.postman.co/collection/51414077-a4cf3830-e918-4640-91ce-7309ab58157f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "price > 0",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"sách lỗi\",\r\n  \"author\": \"test\",\r\n  \"price\": -50000,\r\n  \"published_date\": \"2026-02-02\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Book",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Sách 15\",\r\n  \"author\": \"Vnext\",\r\n  \"price\": 5000,\r\n  \"published_date\": \"2026-02-02\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pagination",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/?skip=0&limit=10",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            ""
+          ],
+          "query": [
+            {
+              "key": "skip",
+              "value": "0"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Book",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"price\": 4000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Book",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/15",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "15"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get List Books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
