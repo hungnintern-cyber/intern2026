@@ -1,0 +1,83 @@
+{
+  "info": {
+    "_postman_id": "dc69f648-2ab9-4339-b758-d6521c7f5397",
+    "name": "W05 Auth APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51414077",
+    "_collection_link": "https://go.postman.co/collection/51414077-dc69f648-2ab9-4339-b758-d6521c7f5397?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "user1@example.com",
+              "type": "text",
+              "uuid": "e1bbefc5-309f-41e4-8a78-0f835af971ee"
+            },
+            {
+              "key": "password",
+              "value": "123",
+              "type": "text",
+              "uuid": "0f1f7d0f-2a27-4ab7-8a07-110bf653c7ce"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Book",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzAzNDE3NjMsInN1YiI6InVzZXIxQGV4YW1wbGUuY29tIn0.hHuYUXoeD4CgMeqeYu1qxkbcdc74xqAdMHtQRm2LUXk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Sách 8\",\r\n    \"author\": \"Vnext\",\r\n    \"price\": 5000,\r\n    \"published_date\": \"2026-02-06\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/books/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
