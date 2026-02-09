@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, ConfigDict
 from typing import Optional
 from datetime import date
 
@@ -20,8 +20,12 @@ class BookUpdate(BaseModel):
     author: Optional[str] = None
     price: Optional[float] = None
     published_date: Optional[date] = None
+    @field_validator('price')
+    def check_price(cls, v):
+        if v is not None and v <= 0:
+            raise ValueError('Giá sách cập nhật phải lớn hơn 0')
+        return v
 
 class BookResponse(BookBase):
     id: int
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
