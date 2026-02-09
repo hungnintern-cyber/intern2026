@@ -1,6 +1,7 @@
 import enum
 from sqlalchemy import Column, Integer, String, Boolean, Enum as DbEnum
 from app.db.database import Base
+from sqlalchemy.orm import relationship
 
 class UserRole(str, enum.Enum):
     USER = "user"
@@ -14,3 +15,5 @@ class User(Base):
     role = Column(DbEnum(UserRole), default=UserRole.USER)
     hashed_password = Column(String, nullable=False)
     is_active = Column(Boolean, default=True)
+
+    books = relationship("Book", back_populates="owner")

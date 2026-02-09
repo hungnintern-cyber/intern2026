@@ -5,10 +5,7 @@ from app.models.user import UserRole
 from app.schemas.book import BookCreate, BookUpdate
 
 def get_books(db: Session, skip: int = 0, limit: int = 10):
-    query = db.query(Book)
-    if skip is not None and limit is not None:
-        query = query.offset(skip).limit(limit)
-    return query.all()
+    return db.query(Book).offset(skip).limit(limit).all()
 
 def get_book(db: Session, book_id: int):
     db_book = db.query(Book).filter(Book.id == book_id).first()

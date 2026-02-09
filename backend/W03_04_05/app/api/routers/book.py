@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.orm import Session
-from typing import List, Optional
+from typing import List
 
 from app.db.database import get_db
 from app.schemas.book import BookCreate, BookUpdate, BookResponse
@@ -11,8 +11,8 @@ router = APIRouter()
 
 @router.get("/", response_model=List[BookResponse])
 def read_books(
-    skip: Optional[int] = Query(None, ge=0),
-    limit: Optional[int] = Query(None, gt=0),
+    skip: int = Query(0, ge=0),
+    limit: int = Query(10, gt=0),
     db: Session = Depends(get_db)
 ):
     return book_service.get_books(db, skip=skip, limit=limit)
