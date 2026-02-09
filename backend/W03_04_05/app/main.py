@@ -1,10 +1,6 @@
 from fastapi import FastAPI
-from app.db.session import engine
-from app.db.database import Base
-from app.api.routers import product, book, auth, user
+from app.api.routers import product, book, auth
 from app.core.config import settings
-
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
